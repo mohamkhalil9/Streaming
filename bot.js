@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
-const developers = ["here id "]
+const developers = ["415142691282616330"]
 const adminprefix = "$";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
