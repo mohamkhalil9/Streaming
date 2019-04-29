@@ -12,7 +12,7 @@ client.on('message', message => {
       if (!developers.includes(message.author.id)) return;
       
   if (message.content.startsWith(adminprefix + 'sp')) {
-    client.user.setGame(argresult);
+   client.user.setGame(argresult, {type:'PLAYING'});
       message.channel.send(`**Status You   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'sw')) {
