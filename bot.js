@@ -55,4 +55,4 @@ if (message.content.startsWith(prefix + 'ply')) {
 });
 
 
-client.login(process.env.BOT_TOKEN);\\By Mixwell
+client.login(process.env.BOT_TOKEN);
