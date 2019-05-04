@@ -15,10 +15,9 @@ client.on('message', message => {
     client.user.setGame(argresult, {type:'PLAYING'});
       message.channel.send(`**Status You   ${argresult}**`)
   } else 
-   if (message.content.startsWith(prefix + 'wat')) {
+  if (message.content.startsWith(adminprefix + 'sw')) {
   client.user.setActivity(argresult, {type: 'WATCHING'})
-     console.log('test' + argresult);
-    message.channel.sendMessage(`Watch Now: **${argresult}`)
+      message.channel.send(`**Status You   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'sl')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
