@@ -5,7 +5,7 @@ var client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Welcome Bro ${client.user.tag}!`);
 });
-var prefix = '^'
+const adminprefix = "^";
 
 const developers = ["415142691282616330","id"]
 client.on('message', message => {
