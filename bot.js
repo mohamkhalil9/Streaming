@@ -7,52 +7,38 @@ client.on('ready', () => {
 });
 var prefix = '^'
 
+const developers = ["415142691282616330","id"]
 client.on('message', message => {
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id !== "415142691282616330") return;
-
-  
-  if (message.content.startsWith(prefix + 'wat')) {
-  client.user.setActivity(argresult, {type: 'WATCHING'})
-     console.log('test' + argresult);
-      message.channel.send(`**Status You ${argresult} **`)
-} 
-
- 
-  if (message.content.startsWith(prefix + 'lis')) {
-  client.user.setActivity(argresult, {type: 'LISTENING'})
-     console.log('test' + argresult);
-      message.channel.send(`**Status You ${argresult} **`)
-} 
-
-
-if (message.content.startsWith(prefix + 'setname')) {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'ply')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'wat')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'lis')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/dream");
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
-      message.channel.sendMessage(`Username Changed To **${argresult}**`)
-  return message.reply("You Can change the username 2 times per hour");
-} 
-
-if (message.content.startsWith(prefix + 'setavatar')) {
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavater')) {
   client.user.setAvatar(argresult);
-   message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
-
-if (message.content.startsWith(prefix + 'st')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/peery13");
-     console.log('test' + argresult);
-      message.channel.send(`**Status You ${argresult} **`)
-} 
-if (message.content.startsWith(prefix + 'ply')) {
-  client.user.setGame(argresult);
-     console.log('test' + argresult);
-      message.channel.send(`**Status You ${argresult} **`)
-} 
-
-
-
 });
 
-
-client.login(process.env.BOT_TOKEN);// صنعت لدى محمد دوله
+client.login(process.env.BOT_TOKEN);
